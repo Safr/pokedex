@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render correctly 1`] = `
+<Headerstyle__HeaderContainer>
+  <Headerstyle__Title>
+    Pokedex
+  </Headerstyle__Title>
+  <Connect(Input) />
+</Headerstyle__HeaderContainer>
+`;

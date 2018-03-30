@@ -1,0 +1,25 @@
+export const black = '#000';
+export const bug = '#a8b820';
+export const dragon = '#7038f8';
+export const electric = '#f8d030';
+export const fairy = '#ee99ac';
+export const fighting = '#c03028';
+export const fire = '#f08030';
+export const flying = '#a890f0';
+export const ice = '#98d8d8';
+export const lightGray = '#ccc';
+export const ghost = '#705898';
+export const grass = '#78c850';
+export const ground = '#e0c068';
+export const normal = '#a8a878';
+export const psychic = '#f85888';
+export const poison = '#673ab7';
+export const red = '#f25f5c';
+export const rock = '#b8a038';
+export const rose = '#f42257';
+export const steel = '#b8b8d0';
+export const water = '#6890f0';
+export const white = '#fff';
+export const bgColor = 'rgba(179, 175, 171, .82)';
+export const mainColor = '#312f38';
+
