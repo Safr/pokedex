@@ -10,10 +10,6 @@ module.exports = {
     '<rootDir>/test-setup.js',
   ],
   setupTestFrameworkScriptFile: '<rootDir>/test-setup.js',
-  // testFileExtensions: [
-  //   'js',
-  //   'jsx',
-  // ],
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -23,9 +19,9 @@ module.exports = {
   testMatch: [
     '**/__tests__/**/*.(js|jsx)',
   ],
-  // transform: {
-  //   '^.+\\.jsx?$': 'babel-jest',
-  // },
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
   snapshotSerializers: [
     'enzyme-to-json/serializer',
   ],

@@ -11,17 +11,18 @@ import { findCurrPoke } from '../../helpers';
 
 class PokemonDetails extends Component {
   componentDidMount() {
+    console.log(this.props.currentPokemon);
     if (this.props.currentPokemon === null) {
       this.props.onRequestPokemon(this.props.match.params.id);
     }
   }
 
   render() {
-    const { currentPokemon, requestedPokemon } = this.props;
-    const { avatar, name, id } = currentPokemon || requestedPokemon;
+    // const { currentPokemon, requestedPokemon } = this.props;
+    const { avatar, name, id } = this.props.currentPokemon || this.props.requestedPokemon;
     return (
-      !currentPokemon &&
-      Object.keys(requestedPokemon).length === 0 ?
+      !this.props.currentPokemon &&
+      Object.keys(this.props.requestedPokemon).length === 0 ?
         <Loader />
         :
         <Container>
@@ -32,7 +33,7 @@ class PokemonDetails extends Component {
           </DetailsHeader>
           <Tab
             currentPokemon={this.props.currentPokemon ?
-              this.props.currentPokemon : requestedPokemon}
+              this.props.currentPokemon : this.props.requestedPokemon}
           />
         </Container>
     );
