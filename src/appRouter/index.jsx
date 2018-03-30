@@ -14,8 +14,7 @@ const AppRouter = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={App} />
-      <Route path="/pokemon/" component={PokemonDetails} />
-      <Route path="/pokemon/:id" component={PokemonDetails} />
+      <Route path="/:id" component={PokemonDetails} />
     </Switch>
 
   </Router>
