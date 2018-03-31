@@ -18,7 +18,7 @@ class Pokemon extends Component {
       <div>
         <h2 className="pokemon--species--name">{name}</h2>
         <SpanId>{`#${id}`}</SpanId>
-        <Link to={`/${id}`}>
+        <Link to={`/pokemon/${id}`}>
           <figure className="pokemon--species--sprite">
             <img src={avatar} alt="avatar" />
           </figure>
