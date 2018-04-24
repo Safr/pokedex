@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const SETTINGS = require('./settings');
+const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackChunkHash = require('webpack-chunk-hash');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,12 +15,12 @@ const production = process.env.NODE_ENV === 'production';
 const fileNamePrefix = production ? '.[chunkhash]' : '';
 
 const pluginsBase = [
+  // new OfflinePlugin(), // async preload chunks
   new HtmlWebpackPlugin({
     template: './src/index.html',
     title: 'Pokedex',
-    // filename: 'index.html',
-    excludeChunks: ['base'],
     filename: 'index.html',
+    excludeChunks: ['base'],
     minify: {
       collapseWhitespace: true,
       collapseInlinespace: true,
@@ -49,6 +52,11 @@ const productionPlugins = [
   new ScriptExtHtmlWebpackPlugin({
     defaultAttribute: 'defer',
   }),
+  // new ManifestPlugin(),
+  // new ChunkManifestPlugin({
+  //   filename: 'chunk-manifest.json',
+  //   manifestVariable: 'webpackManifest',
+  // }),
   new WebpackChunkHash(), //webpack-chunk-hash
   new webpack.HashedModuleIdsPlugin(),
   new webpack.optimize.CommonsChunkPlugin({
@@ -62,6 +70,13 @@ const productionPlugins = [
     chunks: ['vendor'],
     minChunks: Infinity,
     filename: 'js/runtime/runtime.[chunkhash].js',
+    // filename: 'vendor.js',
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'common',
+    minChunks: 2,
+    children: true,
+    filename: 'js/common/[name].[chunkhash].js',
     // filename: 'vendor.js',
   }),
   new webpack.optimize.ModuleConcatenationPlugin(),

@@ -1,3 +1,4 @@
+// import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import 'react-hot-loader/patch';
 import React from 'react';
 import { render } from 'react-dom';
@@ -10,6 +11,8 @@ import './styles.css';
 import './theme/globalStyle';
 
 import AppRouter from './appRouter';
+
+// OfflinePluginRuntime.install();
 
 const rootEl = document.getElementById('root');
 

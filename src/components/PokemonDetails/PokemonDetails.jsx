@@ -11,7 +11,6 @@ import { findCurrPoke } from '../../helpers';
 
 class PokemonDetails extends Component {
   componentDidMount() {
-    console.log(this.props.currentPokemon);
     if (this.props.currentPokemon === null) {
       this.props.onRequestPokemon(this.props.match.params.id);
     }
